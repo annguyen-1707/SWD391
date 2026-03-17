@@ -1,0 +1,71 @@
+import { AuthActionContext, AuthDataContext } from '@/app/providers/AuthProvider';
+import React, { useState, useEffect, useContext } from 'react';
+import { Navbar, Nav, Container, Button, NavDropdown } from 'react-bootstrap';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+
+const RunWiseNavbar = () => {
+    const { user, theme } = useContext(AuthDataContext);
+    const navigator = useNavigate();
+    const { changeTheme, logout } = useContext(AuthActionContext);
+    const displayName =
+        user?.username || user?.fullName || user?.name || user?.email || "Profile";
+    const navLinkCustom = ({ isActive }) =>
+        "nav-link " +
+        (isActive
+            ? "border-bottom border-black text-info"
+            : "text-gray");
+
+    console.log("Navbar render - user:", user, "theme:", theme);
+    return (
+
+        <div className=' border-bottom '>
+            <nav
+                className={`navbar navbar-expand-lg container py-2 ${theme === "Dark" ? "navbar-dark bg-dark" : "navbar-light bg-white"
+                    }`}
+            >
+                <Link
+                    to="/"
+                    className="d-flex align-items-center fw-bold navbar-brand fs-3"
+                >
+                    <img src="/logo/logo-running.png" style={{ height: 35, width: 40, paddingRight: 10 }} />
+                    RunWise
+                    <span className='ms-1 rounded-circle'
+                        style={{ backgroundColor: "#6f4ef6", height: 6, width: 6, display: "inline-block" }}>
+                    </span>
+                </Link>
+                <button type='button' className='navbar-toggler'
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar">
+                    <span className='navbar-toggler-icon'></span>
+                </button>
+                <div className="collapse navbar-collapse" id='mainNavbar'>
+                    <ul className='navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-4'>
+                        <li className="nav-item">
+                            <NavLink className={navLinkCustom} end to="/">Home</NavLink>
+                        </li>
+                    </ul>
+                    {user === null || user === undefined || Object.keys(user).length === 0 ?
+                        (<div className="d-flex gap-2 ms-5">
+                            <NavLink className="btn btn-outline-primary me-2" to="/login">Đăng nhập</NavLink>
+                            <NavLink className="btn btn-outline-primary" to="/register">Đăng ký</NavLink>
+                        </div>) :
+                        (<Nav variant="pills" activeKey="1" onSelect={(selectedKey) => console.log(`selected ${selectedKey}`)}>
+                            <NavDropdown title={displayName} id="nav-dropdown">
+                                <NavDropdown.Item
+                                    eventKey="4.1"
+                                    onClick={() => navigator("/logout")}
+                                >
+                                    Log Out
+                                </NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>)
+                    }
+                </div>
+
+            </nav>
+        </div>
+
+    );
+};
+
+export default RunWiseNavbar;

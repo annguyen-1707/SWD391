@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.italic { font-style: italic; }
+
+.hero-section {
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
+              url("hero.jpg") center/cover;
+  min-height: 90vh; 
+}
+.hero-right {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.h-300 { height: 300px; }
+.object-cover { object-fit: cover; }
+
+.hover-up {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.hover-up:hover {
+  transform: translateY(-10px);
+}
+
+.gear-bg-accent {
+  background-color: #dc3545; /* Màu đỏ đô nổi bật */
+  position: relative;
+  min-height: 400px;
+}
+
+.gear-float-img {
+  transform: rotate(-15deg) scale(1.2);
+  transition: 0.5s ease;
+  filter: drop-shadow(20px 20px 30px rgba(0,0,0,0.3));
+}
+
+.gear-float-img:hover {
+  transform: rotate(0deg) scale(1.1);
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}

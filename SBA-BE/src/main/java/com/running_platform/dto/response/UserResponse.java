@@ -1,0 +1,40 @@
+package com.running_platform.dto.response;
+
+import java.time.LocalDateTime;
+import java.util.Set;
+
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class UserResponse {
+    Long id;
+
+    String username;
+
+    boolean emailVerified;
+
+    Set<RoleResponse> roles;
+
+    String location;
+
+    String fullName;
+
+    String imageUrl;
+
+    String latitude;
+
+    String longitude;
+
+    LocalDateTime createAt;
+
+    private String registeredProviderId;
+
+    LocalDateTime vipExpiredAt;
+
+    String phoneNumber;
+}
