@@ -1,7 +1,7 @@
 package com.running_platform.enums;
 
 public enum RoleEnum {
-      USER, ADMIN;
+      LEARNER, PLATFORM_ADMIN, COURSE_AUTHOR, CONTENT_ADMIN;
 
       public RoleEnum getRoleEnum(String roleName) {
             for (RoleEnum role : RoleEnum.values()) {

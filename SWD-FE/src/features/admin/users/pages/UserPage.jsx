@@ -1,11 +1,13 @@
 import UserTable from "../components/UserTable"
 import { useEffect, useState } from "react";
-import { deleteUserAPI, getUserWithPaginateAPI } from "../services/UserService";
+import { deleteUserAPI, getUserWithPaginateAPI, createUserAPI } from "../services/UserService";
 import { toast } from "react-toastify"; import PaginationCustom from "@/features/admin/users/components/Pagination";
 import SearchItem from "@/features/admin/users/components/SearchItem";
 import "./UserPage.css";
 import UpdateUser from "../components/UpdateUser";
 import DeleteConfirmModal from "../components/DeleteConfirmModal";
+import { Button, Col, Row } from "react-bootstrap";
+import CreateUserModal from "../components/CreateUserModal";
 const UserPage = () => {
     const [users, setUsers] = useState([]);
 
@@ -25,6 +27,18 @@ const UserPage = () => {
 
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [userToDelete, setUserToDelete] = useState(null);
+
+    const [showModal, setShowModal] = useState(false);
+
+    const [formCreate, setFormCreate] = useState(
+        {
+            username: "",
+            email: "",
+            password: "",
+            fullName: "",
+            roles: []
+        }
+    )
 
     const handleUpdateUser = (user) => {
         setSelectedUSer(user)
@@ -82,6 +96,16 @@ const UserPage = () => {
 
         }
     };
+
+    const handleSubmit = async (data) => {
+        try {
+            const res = await createUserAPI(data);
+            toast.success("Create User " + res.fullName + " successful")
+            fetchUsers();
+        } catch (error) {
+            toast.error("Fail to create")
+        }
+    }
     useEffect(() => {
         fetchUsers();
     }, [currentPage, pageSize, debouncedSearch]);
@@ -113,10 +137,29 @@ const UserPage = () => {
                     fetchUsers={fetchUsers}
 
                 />
-                <SearchItem
-                    search={search}
-                    onSearch={setSearch}
+
+                <CreateUserModal
+                    show={showModal}
+                    handleClose={() => setShowModal(false)}
+                    onSubmit={(data) => {
+                        handleSubmit(data)
+                    }}
                 />
+                <Row className="d-flex justify-content-between align-items-center">
+                    <Col xs="auto">
+                        <SearchItem
+                            search={search}
+                            onSearch={setSearch}
+                        />
+                    </Col>
+
+                    <Col xs="auto">
+                        <Button onClick={() => setShowModal(true)}>
+                            Create User
+                        </Button>
+                    </Col>
+                </Row>
+
 
                 <UserTable
                     users={users}

@@ -46,7 +46,7 @@ public class AuthController {
                               HttpServletResponse response) throws IOException {
 
         VerificationTokens verificationToken =
-                tokenRepository.findByToken(token);
+                tokenRepository.getVerificationTokensByToken(token);
 
         if (verificationToken == null) {
             response.sendRedirect("http://localhost:5173/login");

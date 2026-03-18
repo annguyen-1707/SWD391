@@ -20,21 +20,10 @@ public class UserResponse {
 
     Set<RoleResponse> roles;
 
-    String location;
+    String email;
 
     String fullName;
 
-    String imageUrl;
-
-    String latitude;
-
-    String longitude;
-
     LocalDateTime createAt;
 
-    private String registeredProviderId;
-
-    LocalDateTime vipExpiredAt;
-
-    String phoneNumber;
 }

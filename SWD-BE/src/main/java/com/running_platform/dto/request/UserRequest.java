@@ -21,8 +21,10 @@ import java.util.Set;
 public class UserRequest {
     @NotBlank
     @Size(min = 6, max = 30)
-    @Email(message = "Invalid email format")
     String username;
+
+    @Email(message = "Invalid email format")
+    String email;
 
     @NotBlank
     @Size(min = 6, message = ErrorEnum.INVALID_PASSWORD)
@@ -32,15 +34,7 @@ public class UserRequest {
     @Size(max = 50, message = ErrorEnum.INVALID_NAME)
     String fullName;
 
-    private String imageUrl;
-
     boolean emailVerified = false;
-
-    @Nullable
-    private String registeredProviderId;
-
-    @Pattern(regexp = "^0[0-9]{9,10}$", message = ErrorEnum.INVALID_PHONE)
-    String phoneNumber;
 
     Set<RoleEnum> roles;
 

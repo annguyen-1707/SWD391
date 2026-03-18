@@ -1,4 +1,4 @@
-package com.running_platform.service;
+package com.running_platform.security;
 
 import com.running_platform.entity.UserAuth.Users;
 import lombok.AccessLevel;

@@ -5,15 +5,15 @@ import {
 import axiosClient from "@/shared/services/axiosClient"
 
 const createUserAPI = (data) => {
-    const URL_BACKEND = "api/admin/users"
+    const URL_BACKEND = "/users"
     return axiosClient.post(URL_BACKEND, data)
 }
 const getUserWithPaginateAPI = (currentPage, pageSize, keyword) => {
-    const URL_BACKEND = `api/admin/users?page=${currentPage}&size=${pageSize}&keyword=${keyword}`
+    const URL_BACKEND = `/users?page=${currentPage}&size=${pageSize}&keyword=${keyword}`
     return axiosClient.get(URL_BACKEND)
 }
 const updateUserAPI = (data, id) => {
-    const URL_BACKEND = `api/admin/users/${id}`
+    const URL_BACKEND = `/users/${id}`
     return axiosClient.put(URL_BACKEND, data, {
         headers: {
             "Content-Type": "multipart/form-data"
@@ -21,7 +21,7 @@ const updateUserAPI = (data, id) => {
     })
 }
 const deleteUserAPI = (id) => {
-    const URL_BACKEND = `api/admin/users/${id}`
+    const URL_BACKEND = `/users/${id}`
     return axiosClient.delete(URL_BACKEND)
 
 }

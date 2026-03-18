@@ -12,7 +12,7 @@ import com.running_platform.exception.AppException;
 import com.running_platform.mapper.RoleMapper;
 import com.running_platform.mapper.UserMapper;
 import com.running_platform.repository.*;
-import com.running_platform.service.EmailService;
+import com.running_platform.service.NotificationService;
 import com.running_platform.service.UserService;
 import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
@@ -20,6 +20,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +30,7 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -39,8 +43,43 @@ public class UserServiceImpl implements UserService {
     RoleMapper roleMapper;
     PasswordEncoder passwordEncoder;
     VerificationTokenRepository tokenRepository;
-    EmailService emailService;
+    NotificationService notificationService;
     UserRepository userRepository;
+
+    @Transactional
+    @Override
+    public Users createUser(UserRequest userRegister) {
+        if (repository.existsByUsername(userRegister.getUsername())) {
+            throw new AppException(ErrorEnum.USERNAME_EXIST);
+        }
+        if (repository.existsByUsername(userRegister.getEmail())) {
+            throw new AppException(ErrorEnum.EMAIL_EXIST);
+        }
+        Set<Roles> roles = new HashSet<>();
+        Set<RoleEnum> roleRequests = userRegister.getRoles();
+
+        roleRequests.forEach(r -> {
+            Roles role = roleRepository.findByRoleName(r);
+            roles.add(role);
+        });
+        Users user = Users.builder()
+                .username(userRegister.getUsername())
+                .password(passwordEncoder.encode(userRegister.getPassword()))
+                .roles(roles)
+                .emailVerified(false)
+                .fullName(userRegister.getFullName())
+                .email(userRegister.getEmail())
+                .build();
+
+        return repository.save(user);
+    }
+
+    @Override
+    public Page<UserResponse> getUsers(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Users> users = repository.findAll(pageable);
+        return users.map(mapper::toUserResponse);
+    }
 
     @Transactional
     public UserResponse register(UserRequest userRegister) {
@@ -48,17 +87,16 @@ public class UserServiceImpl implements UserService {
             throw new AppException(ErrorEnum.USERNAME_EXIST);
         }
         Set<Roles> roles = new HashSet<>();
-        Roles roleUser = roleRepository.findByRoleName(RoleEnum.USER);
+        Roles roleUser = roleRepository.findByRoleName(RoleEnum.LEARNER);
         roles.add(roleUser);
         Users user = Users.builder()
                 .username(userRegister.getUsername())
                 .password(passwordEncoder.encode(userRegister.getPassword()))
                 .roles(roles)
                 .emailVerified(false)
-                .registeredProviderId(userRegister.getRegisteredProviderId())
                 .fullName(userRegister.getFullName())
                 .emailVerified(userRegister.isEmailVerified())
-                .phoneNumber(userRegister.getPhoneNumber())
+                .email(userRegister.getEmail())
                 .build();
 
         user = repository.save(user);
@@ -83,7 +121,7 @@ public class UserServiceImpl implements UserService {
         tokenRepository.save(verificationToken);
         String content = "Click this link to verify: " + "http://localhost:8080/auth/verify?token=" + token;
         String subject = "Email Verification";
-        emailService.sendVerificationEmail(user.getUsername(), content, subject);
+        notificationService.sendRegistrationNotification(user.getUsername(), content, subject);
     }
 
     @Override
@@ -93,4 +131,5 @@ public class UserServiceImpl implements UserService {
         userResponse.setRoles(roleMapper.toResponse(user.getRoles()));
         return userResponse;
     }
+
 }

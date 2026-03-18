@@ -23,6 +23,9 @@ public class Users extends AbstractEntity<Long> {
     @Column(unique = true, nullable = false, columnDefinition = "VARCHAR(50)")
     String username;
 
+    @Column(unique = true, nullable = false, columnDefinition = "VARCHAR(50)")
+    String email;
+
     @JsonProperty(value = "password", access = JsonProperty.Access.WRITE_ONLY)
     @Column(nullable = true)
     private String password;
@@ -35,32 +38,15 @@ public class Users extends AbstractEntity<Long> {
     )
     Set<Roles> roles;
 
-    String location;
-
     @Column( columnDefinition = "VARCHAR(50)")
     String fullName;
 
-    String latitude;
-
-    String longitude;
 
 //    @Column(name = "registered_provider_id")
     private String registeredProviderId;
 
-    String imageUrl;
-
-    @Column
-    LocalDateTime vipExpiredAt;
-
     @Column(nullable = false, columnDefinition = "boolean default false")
     boolean emailVerified = false;
 
-    String phoneNumber;
 
-    // Will be using same verificationCode and verificationCodeExpiresAt for both (email-verification and password reset)
-//    @Column(name = "verification_code")
-    private String verificationCode;
-
-//    @Column(name = "verification_code_expires_at")
-    private Instant verificationCodeExpiresAt;
 }

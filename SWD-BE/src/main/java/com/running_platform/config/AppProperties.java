@@ -49,9 +49,9 @@ public class AppProperties {
     public static class Jwt {
         private String secretAccessKey;
         private String secretRefreshKey;
-        private long expirationAccessMillis = 3600000;
-        private long expirationRefreshMillis = 3600000;
-        private long shortLivedMillis = 120000;
+        private long expirationAccessMillis = 360000000;
+        private long expirationRefreshMillis = 360000000;
+        private long shortLivedMillis = 12000000;
     }
 
 

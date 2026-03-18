@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9a917529-3d73-40f7-9377-55722741da71" name="Changes" comment="article crud" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;annguyen-1707&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ThaiDuisss/Running-Platform.git&quot;,
+    &quot;accountId&quot;: &quot;ac8cf9cd-a7ce-48d3-a956-762221f0ba73&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="39YHuX6AK0tGKmMa3CozwOyEvZs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.running-platform [clean].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.AuthService.executor": "Run",
+    "Spring Boot.RunningPlatform.executor": "Run",
+    "git-widget-placeholder": "register",
+    "last_opened_file_path": "/Users/nguyenan/Documents/FPT University/Semester 7/SWD391/SWD-Demo/SBA-BE/src/main/java/com/running_platform/service",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/running_platform/service" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/laundry/config" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.running_platform.config" />
+      <recent name="com.running_platform.enums" />
+      <recent name="com.running_platform.service" />
+      <recent name="com.running_platform.service.impl" />
+      <recent name="com.running_platform.controller" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="RunningPlatform" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="running-platform" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.running_platform.RunningPlatform" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.running_platform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="true" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+          <ENTRY IS_ENABLED="true" PARSER="env" IS_EXECUTABLE="false" PATH=".env" />
+        </ENTRIES>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.RunningPlatform" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9a917529-3d73-40f7-9377-55722741da71" name="Changes" comment="" />
+      <created>1770866306768</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1770866306768</updated>
+      <workItem from="1770866307877" duration="4710000" />
+      <workItem from="1771210421512" duration="13673000" />
+      <workItem from="1771987669530" duration="17286000" />
+      <workItem from="1772413958593" duration="124000" />
+      <workItem from="1772676854727" duration="1924000" />
+      <workItem from="1772681839670" duration="1346000" />
+      <workItem from="1773032984159" duration="492000" />
+      <workItem from="1773116351073" duration="886000" />
+      <workItem from="1773118493138" duration="14134000" />
+      <workItem from="1773201350751" duration="2307000" />
+      <workItem from="1773207431829" duration="20119000" />
+      <workItem from="1773284054800" duration="7154000" />
+      <workItem from="1773295772368" duration="1634000" />
+      <workItem from="1773592641092" duration="15383000" />
+      <workItem from="1773764044015" duration="894000" />
+      <workItem from="1773765639084" duration="1596000" />
+      <workItem from="1773767257031" duration="4642000" />
+    </task>
+    <task id="LOCAL-00001" summary="gitignored">
+      <option name="closed" value="true" />
+      <created>1771772477403</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1771772477403</updated>
+    </task>
+    <task id="LOCAL-00002" summary="gitignored">
+      <option name="closed" value="true" />
+      <created>1771776082501</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1771776082501</updated>
+    </task>
+    <task id="LOCAL-00003" summary="gitignored">
+      <option name="closed" value="true" />
+      <created>1771776130856</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1771776130856</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix">
+      <option name="closed" value="true" />
+      <created>1771776702957</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1771776702957</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix">
+      <option name="closed" value="true" />
+      <created>1771988052993</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1771988052993</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix">
+      <option name="closed" value="true" />
+      <created>1772069711942</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1772069711942</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix">
+      <option name="closed" value="true" />
+      <created>1772071930803</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1772071930803</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix">
+      <option name="closed" value="true" />
+      <created>1772677278103</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1772677278103</updated>
+    </task>
+    <task id="LOCAL-00009" summary="profile">
+      <option name="closed" value="true" />
+      <created>1773152545515</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1773152545515</updated>
+    </task>
+    <task id="LOCAL-00010" summary="register by email">
+      <option name="closed" value="true" />
+      <created>1773208911586</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1773208911586</updated>
+    </task>
+    <task id="LOCAL-00011" summary="*.xml">
+      <option name="closed" value="true" />
+      <created>1773209579713</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1773209579713</updated>
+    </task>
+    <task id="LOCAL-00012" summary="forget and reset password by mail">
+      <option name="closed" value="true" />
+      <created>1773220986192</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1773220986193</updated>
+    </task>
+    <task id="LOCAL-00013" summary="article crud">
+      <option name="closed" value="true" />
+      <created>1773288976904</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1773288976904</updated>
+    </task>
+    <task id="LOCAL-00014" summary="article crud">
+      <option name="closed" value="true" />
+      <created>1773289179534</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1773289179534</updated>
+    </task>
+    <task id="LOCAL-00015" summary="article crud">
+      <option name="closed" value="true" />
+      <created>1773289258031</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1773289258031</updated>
+    </task>
+    <task id="LOCAL-00016" summary="article crud">
+      <option name="closed" value="true" />
+      <created>1773592790715</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1773592790715</updated>
+    </task>
+    <task id="LOCAL-00017" summary="article crud">
+      <option name="closed" value="true" />
+      <created>1773596195421</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1773596195421</updated>
+    </task>
+    <task id="LOCAL-00018" summary="article crud">
+      <option name="closed" value="true" />
+      <created>1773632810476</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1773632810476</updated>
+    </task>
+    <task id="LOCAL-00019" summary="article crud">
+      <option name="closed" value="true" />
+      <created>1773633483622</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1773633483622</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="gitignored" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="profile" />
+    <MESSAGE value="register by email" />
+    <MESSAGE value="*.xml" />
+    <MESSAGE value="forget and reset password by mail" />
+    <MESSAGE value="article crud" />
+    <option name="LAST_COMMIT_MESSAGE" value="article crud" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

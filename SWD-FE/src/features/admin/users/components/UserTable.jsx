@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Table from "react-bootstrap/Table";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import "./UserTable.css";
@@ -14,9 +13,9 @@ const UserTable = (props) => {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Avatar</th>
-                        <th>Name</th>
-                        <th>Phone Number</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Full Name</th>
                         <th>Role</th>
                         <th>Action</th>
                     </tr>
@@ -38,10 +37,12 @@ const UserTable = (props) => {
 
                             <tr key={user.id}>
                                 <td>{user.id}</td>
-                                <td><img src={user.imageUrl} alt="avatar" /></td>
                                 <td>{user.username}</td>
-                                <td>{user.phoneNumber}</td>
-                                <td>{user.roles?.[0]?.roleName}</td>                                <td>
+                                <td>{user.email}</td>
+                                <td>{user.fullName}</td>
+                                <td>
+                                    {user.roles?.map(role => role.roleName).join(', ')}
+                                </td>                                 <td>
                                     <div className="action-buttons">
                                         <i
                                             className="bi bi-pencil-square action-icon icon-edit"

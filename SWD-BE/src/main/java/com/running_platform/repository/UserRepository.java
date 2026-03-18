@@ -14,7 +14,9 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<Users, Long> {
 
     boolean existsByUsername(String username);
+
     Optional<Users> findByUsername(String username);
+
     Page<Users> findByUsernameContainingIgnoreCase(
             String keyword,
             Pageable pageable
@@ -22,4 +24,8 @@ public interface UserRepository extends JpaRepository<Users, Long> {
 
     @Query("SELECT u.id FROM Users u WHERE u.username = :username")
     Optional<Long> findIdByUsername(@Param("username") String username);
+
+    Users getUsersByEmail(String email);
+
+    Users getUserById(long userId);
 }

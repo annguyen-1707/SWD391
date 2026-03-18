@@ -25,21 +25,37 @@ public class ApplicationInitConfig {
     @Bean
     ApplicationRunner initApplicationRunner(UserRepository userRepository, RoleRepository roleRepository) {
         return args -> {
-            if (userRepository.findByUsername(("ADMIN")).isEmpty()) {
+            if (userRepository.findByUsername(("admin")).isEmpty()) {
                 Set<Roles> roles = new HashSet<Roles>();
-                Roles adminRole = roleRepository.findByRoleName(RoleEnum.ADMIN);
-                if (adminRole == null) {
-                    adminRole = Roles.builder().roleName(RoleEnum.ADMIN).build();
-                    roleRepository.save(adminRole);
+                Roles platformAdmin = roleRepository.findByRoleName(RoleEnum.PLATFORM_ADMIN);
+                if (platformAdmin == null) {
+                    platformAdmin = Roles.builder().roleName(RoleEnum.PLATFORM_ADMIN).build();
+                    roleRepository.save(platformAdmin);
                 }
-                roles.add(adminRole);
-                Users user = Users.builder().username("ADMIN")
+                Roles contentAdmin = roleRepository.findByRoleName(RoleEnum.CONTENT_ADMIN);
+                if (contentAdmin == null) {
+                    contentAdmin = Roles.builder().roleName(RoleEnum.CONTENT_ADMIN).build();
+                    roleRepository.save(contentAdmin);
+                }
+                Roles learner = roleRepository.findByRoleName(RoleEnum.LEARNER);
+                if (learner == null) {
+                    learner = Roles.builder().roleName(RoleEnum.LEARNER).build();
+                    roleRepository.save(learner);
+                }
+                Roles courseAuthor = roleRepository.findByRoleName(RoleEnum.COURSE_AUTHOR);
+                if (courseAuthor == null) {
+                    courseAuthor = Roles.builder().roleName(RoleEnum.COURSE_AUTHOR).build();
+                    roleRepository.save(courseAuthor);
+                }
+                roles.add(platformAdmin);
+                Users user = Users.builder().username("admin")
                         .password(passwordEncoder.encode("admin"))
                         .roles(roles)
                         .emailVerified(true)
+                        .email("gasoqua1707@gmail.com")
                         .build();
                 userRepository.save(user);
-                log.warn("Initialized admin user with username: ADMIN and password: admin");
+                log.warn("Initialized admin user with username: admin and password: admin");
             }
         };
     }

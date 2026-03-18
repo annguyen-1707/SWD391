@@ -7,7 +7,7 @@ import com.running_platform.entity.UserAuth.Users;
 import com.running_platform.enums.TokenType;
 import com.running_platform.exception.AppException;
 import com.running_platform.repository.UserRepository;
-import com.running_platform.service.AppSecurityUtils;
+import com.running_platform.security.AppSecurityUtils;
 import com.running_platform.service.AuthenticationService;
 import com.running_platform.service.JwtService;
 import lombok.AccessLevel;

@@ -33,7 +33,8 @@ public enum ErrorEnum {
     EMAIL_NOT_FOUND(4007, "If the email exists, a reset link has been sent"),
     ARTICLE_NOT_FOUND(4008, "Article not found"),
     CATEGORY_NOT_FOUND(4009, "Category not found"),
-    FAILED_OAUTH2_REDIRECT(1111, "Sorry! We've got an Unauthorized Redirect URI and can't proceed with the authentication");
+    FAILED_OAUTH2_REDIRECT(1111, "Sorry! We've got an Unauthorized Redirect URI and can't proceed with the authentication"),
+    EMAIL_EXIST(4010, "Email is exist");
 
 
     public static final String INVALID_STATUS_MS = "Status is invalid";
