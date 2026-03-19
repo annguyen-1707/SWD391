@@ -41,10 +41,21 @@ public class UserService {
         user.setUsername(username);
         user.setEmail(email);
         user.setPassword(password); // In real app, encode this
-        user.setStatus("ACTIVE");
+        user.setStatus("NOT_VERIFIED");
         user.setCreatedAt(LocalDateTime.now());
         user.setRoles(roles);
 
+        return userRepository.save(user);
+    }
+
+    @Transactional
+    public User createUserV2(String username, String email, String password) {
+        User user = new User();
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setPassword(password); // In real app, encode this
+        user.setStatus("NOT_VERIFIED");
+        user.setCreatedAt(LocalDateTime.now());
         return userRepository.save(user);
     }
 }

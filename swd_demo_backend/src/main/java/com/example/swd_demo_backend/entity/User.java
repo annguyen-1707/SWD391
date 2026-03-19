@@ -26,9 +26,6 @@ public class User {
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    @Column(name = "created_by_admin_id")
-    private Long createdByAdminId;
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "user_roles",
