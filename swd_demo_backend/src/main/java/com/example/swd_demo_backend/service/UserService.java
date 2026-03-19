@@ -14,7 +14,7 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class UserService implements IUserService{
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;

@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CourseService {
+public class CourseService implements ICourseService {
 
     private final CourseRepository courseRepository;
 
