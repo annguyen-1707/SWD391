@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -27,9 +29,13 @@ public class UserService {
     }
 
     @Transactional
-    public User createUser(String username, String email, String password, Long roleId) {
-        Role role = roleRepository.findById(roleId)
-                .orElseThrow(() -> new IllegalArgumentException("Role not found"));
+    public User createUser(String username, String email, String password, Set<Long> roleIds) {
+        Set<Role> roles = new HashSet<>();
+        roleIds.forEach(roleId -> {
+            Role role = roleRepository.findById(roleId)
+                    .orElseThrow(() -> new IllegalArgumentException("Role not found"));
+            roles.add(role);
+        });
 
         User user = new User();
         user.setUsername(username);
@@ -37,7 +43,7 @@ public class UserService {
         user.setPassword(password); // In real app, encode this
         user.setStatus("ACTIVE");
         user.setCreatedAt(LocalDateTime.now());
-        user.getRoles().add(role);
+        user.setRoles(roles);
 
         return userRepository.save(user);
     }

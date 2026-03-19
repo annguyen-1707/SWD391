@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Set;
+
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
@@ -31,14 +33,16 @@ public class UserController {
                     request.getUsername(),
                     request.getEmail(),
                     request.getPassword(),
-                    request.getRoleId()
+                    request.getRoleIds()
             );
 
             // Step 3: Create Verification Token
             VerificationToken token = verificationTokenService.createToken(user.getId());
 
             // Step 4: Send Notification
-            notificationService.sendRegistrationNotification(user.getEmail(), token.getToken());
+            String content = "Click this link to verify: " + "http://localhost:8080/auth/verify?token=" + token;
+            String subject = "Email Verification";
+            notificationService.sendRegistrationNotification(user.getEmail(), subject, content);
 
             return ResponseEntity.ok(new MessageResponse("User created successfully. Verification email sent."));
         } catch (IllegalArgumentException e) {
@@ -53,7 +57,7 @@ public class UserController {
         private String username;
         private String email;
         private String password;
-        private Long roleId;
+        Set<Long> roleIds;
     }
 
     @Data
