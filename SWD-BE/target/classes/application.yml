@@ -1,0 +1,104 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: running-platform
+  datasource:
+    url: jdbc:mysql://localhost:3306/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: ${GOOGLE_CLIENT_ID}
+            clientSecret: ${GOOGLE_CLIENT_SECRET}
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope: email, profile
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${GMAIL}
+    password: ${GMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+#  data:
+#    redis:
+#      host: localhost
+#      port: 6379
+#      #        password: Thai@11052004
+#      timeout: 60000
+#  kafka:
+#    bootstrap-servers: localhost:9092
+#    producer:
+#        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#        value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+#        acks: all
+#        retries: 30
+#        compress-type: lz4
+#        properties:
+#          enable-idempotence: true
+#          max.in.flight.request.per.connect: 5
+#          spring.json.add.type.header: false
+
+
+myapp:
+
+  appName: spring security OAuth2 and JWT starter example
+  officialCompanyName: XYZ-Company Inc.
+  officialCompanyDomain: http://localhost:5173
+
+  mail:
+    defaultEmailAddress: thai1105044@gmail.com
+    verificationCodeExpirationSeconds: 900 # 30 minutes
+
+  jwt:
+    secretAccessKey: bXlTdXBlclNlY3JldEtleUZvckpXVEF1dGhlbnRpY2F0aW9uMTIzNDU2
+    secretRefreshKey: RpHz5z6LHjsAjGfX1txgCO9D/PmNlZJMRRKbM925joU=
+    mailSecret: RpHz5z6LHjsAjGfX1txgCO9D/1105ZJMRRKbM925joU=
+    expirationAccessMillis: 3600000
+    expirationRefreshMillis: 3600000
+    shortLivedMillis: 120000
+    mailExpiration: 300000
+
+
+  Cloudinary:
+    cloud-name: {CLOUD_NAME}
+    api-key: {API_KEY}
+    api-secret: {API_SECRET}
+
+  cors:
+    allowedOrigins:
+      - http://localhost:8080
+      - http://localhost:5173
+    allowedMethods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+      - OPTIONS
+
+  oauth2:
+    authorizedRedirectOrigins: http://localhost:8080,http://localhost:5173
+    cookieExpireSeconds: 120
+
+  defaults:
+    defaultPageStart: 0
+    defaultPageSize: 50
+
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
